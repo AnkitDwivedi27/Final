@@ -1,0 +1,10 @@
+.bg-primary { background-color: #007bff; }
+.bg-secondary { background-color: #6c757d; }
+.bg-accent { background-color: #ffc107; }
+
+.text-light { color: #ffffff; }
+.text-dark { color: #212529; }
+
+.bg-light { background-color: #f8f9fa; }
+.bg-dark { background-color: #343a40; }
+.border-b { border-bottom: 1px solid #ccc; }
