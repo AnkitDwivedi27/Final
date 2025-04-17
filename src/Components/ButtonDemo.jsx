@@ -14,7 +14,7 @@ export default function ButtonDemo() {
 
   const handleCopy = (text) => {
     navigator.clipboard.writeText(text);
-    alert('Class copied to clipboard!');
+    alert('Class copied to clipboard');
   };
 
   return (
