@@ -1,3 +1,5 @@
+// App.js
+
 import './Library/Spacing.css';
 import './Library/Flexbox.css';
 import './Library/Typography.css';
@@ -12,18 +14,22 @@ import ButtonDemo from './Components/ButtonDemo';
 import Searchbar from './Components/Searchbar';
 import DarkModeToggle from './Components/DarkModeToggle';
 
-
-
 export default function App() {
   const [view, setView] = useState('home');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const menuItems = ['colors', 'spacing', 'typography', 'flexbox', 'buttons','dark'];
+  const menuItems = ['colors', 'spacing', 'typography', 'flexbox', 'buttons', 'dark'];
 
   const handleSearch = (term) => {
     setSearchTerm(term);
     const match = menuItems.find(item => item.includes(term.toLowerCase()));
     if (match) setView(match);
+  };
+
+  const handleCopyCDN = () => {
+    navigator.clipboard.writeText("https://ankitdwivedi27.github.io/BuildCustomCss/build.css")
+      .then(() => alert("✅ CDN link copied to clipboard!"))
+      .catch(() => alert("❌ Failed to copy link."));
   };
 
   const renderComponent = () => {
@@ -34,9 +40,6 @@ export default function App() {
       case 'flexbox': return <FlexboxDemo />;
       case 'buttons': return <ButtonDemo />;
       case 'dark': return <DarkModeToggle />;
-     
-      
-     
       default:
         return (
           <div style={{ textAlign: 'center', padding: '1rem' }}>
@@ -48,6 +51,26 @@ export default function App() {
             <p style={{ marginBottom: '1rem' }}>
               Build fast and responsive UIs with simple class-based utilities!
             </p>
+
+            <button
+              onClick={handleCopyCDN}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: '#28a745',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '0.5rem',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                marginBottom: '1rem',
+                transition: 'background 0.3s'
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#218838'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#28a745'}
+            >
+              📋 Copy CDN Link
+            </button>
+
             <div style={{
               display: 'flex',
               justifyContent: 'center',
@@ -95,7 +118,6 @@ export default function App() {
 
   return (
     <div style={{ width: '100%' }}>
-      
       <nav style={{
         display: 'flex',
         alignItems: 'center',
@@ -110,7 +132,6 @@ export default function App() {
         flexWrap: 'wrap',
         gap: '1rem'
       }}>
-       
         <div style={{
           fontSize: '1.125rem',
           fontWeight: 'bold',
@@ -123,7 +144,6 @@ export default function App() {
           <span>CSS Framework</span>
         </div>
 
-        
         <div style={{
           display: 'flex',
           flex: 1,
@@ -132,7 +152,6 @@ export default function App() {
           flexWrap: 'wrap',
           gap: '1rem'
         }}>
-          
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <span
               onClick={() => setView('home')}
@@ -169,42 +188,36 @@ export default function App() {
             ))}
           </div>
 
-         
           <div style={{
-  marginLeft: 'auto',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '0.5rem',
-  backgroundColor: '#f1f3f5',
-  padding: '6px 12px',
-  borderRadius: '8px',
-  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
-  border: '1px solid #ccc',
-  maxWidth: '240px',
-  width: '100%',
-  transition: 'all 0.3s ease-in-out'
-}}>
- 
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6c757d" viewBox="0 0 16 16">
-    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 
-             1.415-1.414l-3.85-3.85zm-5.242 1.106a5 5 0 1 
-             1 0-10 5 5 0 0 1 0 10z" />
-  </svg>
-
-  <Searchbar onSearch={handleSearch} />
-</div>
-
+            marginLeft: 'auto',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            backgroundColor: '#f1f3f5',
+            padding: '6px 12px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+            border: '1px solid #ccc',
+            maxWidth: '240px',
+            width: '100%',
+            transition: 'all 0.3s ease-in-out'
+          }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6c757d" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 
+                     1.415-1.414l-3.85-3.85zm-5.242 1.106a5 5 0 1 
+                     1 0-10 5 5 0 0 1 0 10z" />
+            </svg>
+            <Searchbar onSearch={handleSearch} />
+          </div>
         </div>
       </nav>
 
-      
       <main style={{
         padding: '1.5rem 1rem',
-        minHeight: '100vh', 
-        
-        backgroundColor: view === 'home' ? '#f0f0f0' : 'transparent', 
-        backgroundImage: view === 'home' ? 'url(https://images.pexels.com/photos/743986/pexels-photo-743986.jpeg)' : 'none', 
-        backgroundSize: 'cover', 
+        minHeight: '100vh',
+        backgroundColor: view === 'home' ? '#f0f0f0' : 'transparent',
+        backgroundImage: view === 'home' ? 'url(https://images.pexels.com/photos/743986/pexels-photo-743986.jpeg)' : 'none',
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         overflow: 'hidden'
