@@ -50,7 +50,7 @@ Error generating stack: `+a.message+`
   <div class="d-flex gap-2" style="background-color: #a8d8f0; padding: 1rem; border-radius: 8px;">
     <div class="bg-primary p-2 rounded" style="flex: 1; text-align: center;">Flex 1</div>
     <div class="bg-primary p-2 rounded" style="flex: 1; text-align: center;">Flex 2</div>
-    <div class="bg-primary p-2 rounded" style="flex: 1; text-align: center;">Flex 3</div>
+    <div class="bg-primary p-2 rounded" style="flex: 1; text-align: center;">Flex 3</div> 
   </div>
   `,z=`
   <div class="d-flex justify-content-center align-items-center" style="background-color: #fdcb6e; padding: 1rem 2rem; border-radius: 8px;">
