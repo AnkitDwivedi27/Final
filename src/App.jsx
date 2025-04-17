@@ -1,5 +1,3 @@
-// App.js
-
 import './Library/Spacing.css';
 import './Library/Flexbox.css';
 import './Library/Typography.css';
@@ -27,9 +25,12 @@ export default function App() {
   };
 
   const handleCopyCDN = () => {
-    navigator.clipboard.writeText("https://ankitdwivedi27.github.io/BuildCustomCss/build.css")
-      .then(() => alert("✅ CDN link copied to clipboard!"))
-      .catch(() => alert("❌ Failed to copy link."));
+    const cdnLink = "https://ankitdwivedi27.github.io/BuildCustomCss/build.css";
+    navigator.clipboard.writeText(cdnLink).then(() => {
+      alert("✅ CDN link copied to clipboard!");
+    }).catch(err => {
+      alert("❌ Failed to copy link");
+    });
   };
 
   const renderComponent = () => {
@@ -48,9 +49,33 @@ export default function App() {
               fontWeight: 'bold',
               marginBottom: '1rem'
             }}>🎨 My Custom CSS Framework</h1>
+
             <p style={{ marginBottom: '1rem' }}>
               Build fast and responsive UIs with simple class-based utilities!
             </p>
+
+            <div style={{
+              backgroundColor: '#f1f1f1',
+              padding: '0.75rem 1rem',
+              borderRadius: '0.5rem',
+              marginBottom: '0.75rem',
+              display: 'inline-block',
+              fontFamily: 'monospace',
+              wordWrap: 'break-word',
+              maxWidth: '90%',
+              color: '#333',
+              fontSize: '0.9rem'
+            }}>
+              <a
+                href="https://ankitdwivedi27.github.io/BuildCustomCss/build.css"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none', color: '#007bff' }}
+              >
+                https://ankitdwivedi27.github.io/BuildCustomCss/build.css
+              </a>
+            </div>
+            <br />
 
             <button
               onClick={handleCopyCDN}
@@ -83,7 +108,6 @@ export default function App() {
                 backgroundColor: '#007bff',
                 color: '#fff',
                 borderRadius: '0.5rem',
-                transition: 'transform 0.2s',
                 cursor: 'pointer'
               }}>Primary</div>
               <div style={{
@@ -91,7 +115,6 @@ export default function App() {
                 backgroundColor: '#6c757d',
                 color: '#fff',
                 borderRadius: '0.5rem',
-                transition: 'transform 0.2s',
                 cursor: 'pointer'
               }}>Secondary</div>
               <div style={{
@@ -99,7 +122,6 @@ export default function App() {
                 backgroundColor: '#ffc107',
                 color: '#000',
                 borderRadius: '0.5rem',
-                transition: 'transform 0.2s',
                 cursor: 'pointer'
               }}>Accent</div>
               <div style={{
@@ -107,7 +129,6 @@ export default function App() {
                 color: '#fff',
                 padding: '0.5rem 1rem',
                 borderRadius: '0.375rem',
-                transition: 'background-color 0.3s',
                 cursor: 'pointer'
               }}>Button</div>
             </div>
@@ -124,7 +145,6 @@ export default function App() {
         justifyContent: 'space-between',
         padding: '1rem 1.5rem',
         backgroundColor: '#f8f9fa',
-        color: '#000',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
         position: 'sticky',
         top: 0,
@@ -162,8 +182,6 @@ export default function App() {
                 color: view === 'home' ? '#007bff' : '#000',
                 fontWeight: view === 'home' ? 'bold' : 'normal'
               }}
-              onMouseEnter={e => (e.target.style.color = '#007bff')}
-              onMouseLeave={e => (e.target.style.color = view === 'home' ? '#007bff' : '#000')}
             >
               Home
             </span>
@@ -175,13 +193,10 @@ export default function App() {
                 style={{
                   cursor: 'pointer',
                   padding: '4px 8px',
-                  transition: 'color 0.3s ease',
                   textTransform: 'capitalize',
                   color: view === item ? '#007bff' : '#000',
                   fontWeight: view === item ? 'bold' : 'normal'
                 }}
-                onMouseEnter={e => (e.target.style.color = '#007bff')}
-                onMouseLeave={e => (e.target.style.color = view === item ? '#007bff' : '#000')}
               >
                 {item}
               </span>
@@ -204,8 +219,8 @@ export default function App() {
           }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6c757d" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 
-                     1.415-1.414l-3.85-3.85zm-5.242 1.106a5 5 0 1 
-                     1 0-10 5 5 0 0 1 0 10z" />
+              1.415-1.414l-3.85-3.85zm-5.242 1.106a5 5 0 1 
+              1 0-10 5 5 0 0 1 0 10z" />
             </svg>
             <Searchbar onSearch={handleSearch} />
           </div>
