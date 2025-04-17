@@ -9,7 +9,7 @@ const colors = [
   { className: 'bg-danger text-light', label: 'Danger', hex: '#dc3545' },
   { className: 'bg-warning text-dark', label: 'Warning', hex: '#ffc107' },
   { className: 'bg-info text-dark', label: 'Info', hex: '#17a2b8' },
-
+ 
   { className: 'bg-light text-dark', label: 'Light', hex: '#f8f9fa' },
   { className: 'bg-dark text-light', label: 'Dark', hex: '#343a40' }
 ];
